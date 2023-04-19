@@ -73,7 +73,6 @@ $products = [
             <?php endforeach; ?>
         </div>
     </main>
-    <footer></footer>
 
 </body>
 
