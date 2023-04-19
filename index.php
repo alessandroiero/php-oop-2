@@ -4,20 +4,23 @@ require_once __DIR__ . "/models/Gioco.php";
 require_once __DIR__ . "/models/Categoria.php";
 require_once __DIR__ . "/models/Cibo.php";
 
+// nuove istanze
 $category_dog = new Categoria("dog",'<i class="fa-solid fa-dog"></i>');
 $category_cat = new Categoria("cat",'<i class="fa-solid fa-cat"></i>');
 $category_bird = new Categoria("bird",'<i class="fa-solid fa-crow"></i>');
 $category_fish = new Categoria("fish",'<i class="fa-solid fa-fish"></i>');
 
-
-
-$prodotto = new Prodotto("Guinzaglio", "https://images.unsplash.com/photo-1620954492246-f1f107f4ec89?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=687&q=80", 15.99, $category_dog);
-$prodotto2 = new Prodotto("Osso di gomma", "https://images.unsplash.com/photo-1535294435445-d7249524ef2e?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1470&q=80", 15.99, $category_dog);
-$prodotto3 = new Cibo("Croccantini", "https://images.unsplash.com/photo-1676193866128-03a926df76ef?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1471&q=80", 15.99, $category_dog);
-$prodotto4 = new Prodotto("Mangime Per Pesci", "https://images.unsplash.com/photo-1600781048302-ac9a3bc48bb2?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1074&q=80", 15.99, $category_fish);
-$prodotto5 = new Prodotto("Mangime Per Uccelli", "https://images.unsplash.com/photo-1591608971362-f08b2a75731a?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=880&q=80", 15.99, $category_bird);
-$prodotto3->set_ingredienti('pollo, cartone, manzo');
-
+// eccezione
+try{
+    $prodotto = new Prodotto("Guinzaglio", "https://images.unsplash.com/photo-1620954492246-f1f107f4ec89?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=687&q=80", 15.99, $category_dog);
+    $prodotto2 = new Prodotto("Osso di gomma", "https://images.unsplash.com/photo-1535294435445-d7249524ef2e?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1470&q=80", 15.99, $category_dog);
+    $prodotto3 = new Cibo("Croccantini", "https://images.unsplash.com/photo-1676193866128-03a926df76ef?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1471&q=80", 15.99, $category_dog);
+    $prodotto4 = new Prodotto("Mangime Per Pesci", "https://images.unsplash.com/photo-1600781048302-ac9a3bc48bb2?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1074&q=80", 15.99, $category_fish);
+    $prodotto5 = new Prodotto("Mangime Per Uccelli", "https://images.unsplash.com/photo-1591608971362-f08b2a75731a?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=880&q=80", 15.99, $category_bird);
+    $prodotto3->set_ingredienti('pollo, cartone, manzo');
+} catch (Exception $e){
+    echo $e->getMessage();
+}
 
 
 $products = [

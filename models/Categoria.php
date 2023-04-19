@@ -1,32 +1,14 @@
 <?php
+require_once __DIR__ . "/../Traits/Name.php";
 class Categoria{
-    public $specie;
-    private $nome;
+
+    use Name;
     private $icon;
 
     public function __construct($_nome, $_icon)
     {
         $this->nome = $_nome;
         $this->icon = $_icon;
-    }
-
-        /**
-     * Get Nome
-     *
-     * @return string
-     */
-    public function get_nome(){
-        return $this->nome;
-    }
-        
-    /**
-     * set_nome
-     *
-     * @param  string $_nome
-     * @return string
-     */
-    public function set_nome($_nome){
-        $this->nome = $_nome;
     }
 
             /**
@@ -41,7 +23,7 @@ class Categoria{
     /**
      * set_icon
      *
-     * @param  string $_nome
+     * @param  string $_icon
      * @return string
      */
     public function set_icon($_icon){

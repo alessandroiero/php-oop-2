@@ -1,10 +1,12 @@
 <?php
+require_once __DIR__ . "/../Traits/Name.php";
 /**
  * Prodotto
  * 
  */
 class Prodotto{
-    private $nome;
+
+    use Name;
     private $image;
     private $prezzo;
     private $categoria;
@@ -17,32 +19,13 @@ class Prodotto{
      * @param  float $_prezzo
      * @param  mixed $categoria
      */
-    function __construct( $_nome, $_image, $_prezzo, Categoria $categoria)
+    function __construct( $_nome, $_image, $_prezzo, $categoria)
     {
         $this->nome = $_nome;
         $this->image = $_image;
         $this->prezzo = $_prezzo;
         $this->categoria = $categoria;
     }    
-    /**
-     * Get Nome
-     *
-     * @return string
-     */
-    public function get_nome(){
-        return $this->nome;
-    }
-        
-    /**
-     * set_nome
-     *
-     * @param  string $_nome
-     * @return string
-     */
-    public function set_nome($_nome){
-        $this->nome = $_nome;
-    }
-        
     /**
      * get_categoria
      *
@@ -75,6 +58,10 @@ class Prodotto{
      * @return float
      */
     public function set_prezzo($_prezzo){
+
+        if($_prezzo <=0){
+            throw new Exception('Error: Prezzo inserito non valido');
+        }
         $this->prezzo = $_prezzo;
     }    
     /**
